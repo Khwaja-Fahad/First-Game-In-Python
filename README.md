@@ -1,10 +1,54 @@
-# First-Game-In-Python
- Rock Paper Scissors Game in Python
+import random as rnd
 
-Randomized computer player: The computer player makes random choices (rock, paper, or scissors) for each round, creating an unpredictable gameplay experience.
-User input and validation: The program prompts the user to enter their choice (rock, paper, or scissors) and validates the input to ensure it is one of the available options.
-Outcome determination: The program compares the user's choice with the computer's choice and determines the winner based on the game rules (rock beats scissors, paper beats rock, scissors beat paper).
-Score tracking: The program keeps track of the user's and computer's scores throughout the game and displays the final result at the end.
-This project demonstrates the usage of fundamental Python concepts such as conditionals (if-elif statements), randomization, and list manipulation. It provides a simple yet engaging implementation of the popular Rock Paper Scissors game.
+computer_win=0
+user_win=0
+options=["rock","paper","secissor"]
 
-Feel free to explore the code, modify it, and use it as a learning resource or for your own entertainment!
+while True:
+    user_pick=input("Enter Your Choice Rock/Paper/Secissor or want to Quit: ").lower()
+    
+    if user_pick =="quit":
+        break
+    
+    if user_pick not in options:
+        print("\n")
+        continue
+    
+    random_number=rnd.randint(0,2)
+    computer_pick=options[random_number]
+    
+    print("Computer Pick", computer_pick,".")
+    
+    if user_pick =="rock" and computer_pick =="secissor":
+        print("You Won! \n")
+        user_win +=1
+    
+    elif user_pick =="secissor" and computer_pick =="paper":
+        print("You Won! \n")
+        user_win +=1
+    
+    elif user_pick =="paper" and computer_pick =="rock":
+        print("You Won! \n")
+        user_win +=1
+    
+    elif user_pick =="rock" and computer_pick =="rock":
+        print("\n")
+        continue
+    
+    elif user_pick =="secissor" and computer_pick =="secissor":
+        print("\n")
+        continue
+    
+    elif user_pick =="paper" and computer_pick =="paper":
+        print("\n")
+        continue
+    
+        
+    else:
+        print("Computer Won! \n")
+        computer_win +=1
+
+
+print("You Won",user_win,"Times")
+print("Computer Won",computer_win,"Times")
+print("Good Bye")
